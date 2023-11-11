@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Slabo+13px&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+}
+
+body {
+  font-family: "Slabo 13px", serif;
+  background-color: #e3e5ed;
+  padding: 2rem;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
+
+.faq-container {
+  width: 500px;
+
+  .faq {
+    background-color: white;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+    padding: 2rem;
+    position: relative;
+
+    &-title {
+      font-weight: bold;
+      font-size: 1.15rem;
+      padding-right: 3rem;
+      cursor: pointer;
+    }
+
+    &-body {
+      line-height: 1.5rem;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease-in-out;
+      //   margin-top: 1rem;
+    }
+
+    &.active {
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    &.active .faq-title {
+      color: deeppink;
+    }
+
+    &.active .faq-body {
+      max-height: 1000px;
+    }
+
+    .closed {
+      .vertical {
+        transition: all 0.5s ease-in-out;
+        transform: rotate(-90deg);
+      }
+      .horizontal {
+        transition: all 0.5s ease-in-out;
+        transform: rotate(-90deg);
+        opacity: 1;
+      }
+    }
+
+    .opened {
+      opacity: 1;
+      .vertical {
+        transition: all 0.5s ease-in-out;
+        transform: rotate(90deg);
+      }
+      .horizontal {
+        transition: all 0.5s ease-in-out;
+        transform: rotate(90deg);
+        opacity: 0;
+      }
+    }
+
+    .circle-plus {
+      height: 4em;
+      width: 4em;
+      font-size: 1em;
+      position: absolute;
+      right: 0;
+      top: 26px;
+      cursor: pointer;
+
+      .circle {
+        position: relative;
+        width: 2.55em;
+        height: 2.5em;
+        border-radius: 100%;
+
+        .horizontal {
+          position: absolute;
+          background-color: deeppink;
+          width: 20px;
+          height: 2px;
+          left: 50%;
+          margin-left: -12px;
+          top: 50%;
+          margin-top: -4px;
+        }
+
+        .vertical {
+          position: absolute;
+          background-color: deeppink;
+          width: 2px;
+          height: 20px;
+          left: 50%;
+          margin-left: -2.5px;
+          top: 50%;
+          margin-top: -12px;
+        }
+      }
+    }
+  }
+}
